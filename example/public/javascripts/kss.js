@@ -14,6 +14,7 @@
           _ref2 = stylesheet.cssRules;
           for (idx = 0, _len2 = _ref2.length; idx < _len2; idx++) {
             rule = _ref2[idx];
+            pseudos.lastIndex = 0;
             while ((rule.type === CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)) {
               replaceRule = function(matched, stuff) {
                 return matched.replace(/\:/g, '.pseudo-class-');

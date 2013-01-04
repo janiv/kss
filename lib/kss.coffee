@@ -15,6 +15,7 @@ class KssStateGenerator
       for stylesheet in document.styleSheets
         idxs = []
         for rule, idx in stylesheet.cssRules
+          pseudos.lastIndex = 0
           while (rule.type == CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)
             replaceRule = (matched, stuff) ->
               return matched.replace(/\:/g, '.pseudo-class-')
